@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Move : MonoBehaviour
 {
@@ -12,9 +13,14 @@ public class Move : MonoBehaviour
     {
         //이동 (상하좌우키 : WSAD키 혹은 상하좌우이동키)
         moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        /*moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;*/
-
-        transform.position = new Vector2(transform.position.x + moveX);
-
+        /*moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+*/
+        transform.position = new Vector2(transform.position.x + moveX,-2.7f);
+        Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
+        if (position.x < 0f) position.x = 0f;
+        if (position.y < 0f) position.y = 0f;
+        if (position.x > 1f) position.x = 1f;
+        if (position.y > 1f) position.y = 1f;
+        transform.position = Camera.main.ViewportToWorldPoint(position);
     }
 }
