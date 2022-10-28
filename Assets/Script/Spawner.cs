@@ -42,8 +42,8 @@ public class Spawner : MonoBehaviour
     {
         GameObject spawnPrefab = spawnList[Random.Range(0, spawnList.Length)];
         float range = Random.Range(range_Start, range_End);
-        transform.position = new Vector3(range, 6f, 0.05f);
-        Instantiate(spawnPrefab, transform.position, transform.rotation/*방향*/, transform);
+        
+        Instantiate(spawnPrefab, new Vector3(range, 6f, 0.05f), transform.rotation/*방향*/, transform);
         time = 0f;
     }
 }

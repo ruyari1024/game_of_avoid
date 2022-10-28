@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 911730154165343876}
   m_Layer: 0
   m_Name: hurdle
-  m_TagString: Untagged
+  m_TagString: Hurdle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be8fb10cfbda1b488effc29aa6ae62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 8
+  destoryTime: 1.15
 --- !u!60 &911730154165343876
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
