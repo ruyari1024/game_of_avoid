@@ -17,7 +17,7 @@ public class Jumsu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score += Time.deltaTime;
+        score += Time.deltaTime*5;
         ScoreText.text = ((int)score).ToString();
     }
 }
