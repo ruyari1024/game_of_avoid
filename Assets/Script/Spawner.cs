@@ -22,6 +22,8 @@ public class Spawner : MonoBehaviour
     float a = 10;
     float speed = 8f;
     float d_time = 1.15f;
+
+
     
     void Start()
     {
@@ -38,8 +40,8 @@ public class Spawner : MonoBehaviour
         {
             endSpawnTime = endSpawnTime/1.007f;
             StartSpawnTime = StartSpawnTime/1.02f;
-            speed += 0.1f;
-            d_time -= 0.01f;
+            speed += 0.01f;
+            d_time -= 0.001f;
             a += 3;
             
         }
