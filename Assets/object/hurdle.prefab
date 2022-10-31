@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 911730154165343877}
   - component: {fileID: 911730154165343878}
-  - component: {fileID: 911730154165343879}
   - component: {fileID: 911730154165343876}
+  - component: {fileID: -3791942591936431613}
   m_Layer: 0
   m_Name: hurdle
   m_TagString: Hurdle
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &911730154165343879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911730154165343880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be8fb10cfbda1b488effc29aa6ae62a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  destoryTime: 1.15
 --- !u!60 &911730154165343876
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -160,3 +146,17 @@ PolygonCollider2D:
       - {x: 0.75656796, y: 0.368598}
       - {x: 0.76749563, y: 0.56872714}
       - {x: 0.8206917, y: 0.6844156}
+--- !u!114 &-3791942591936431613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911730154165343880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be8fb10cfbda1b488effc29aa6ae62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  destoryTime: 1.15

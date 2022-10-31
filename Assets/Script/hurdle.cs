@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class hurdle : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float destoryTime = 5f;
+    public float moveSpeed = 8f;
+    public float destoryTime = 1.15f;
 
     void Start()
     {
@@ -13,8 +13,9 @@ public class hurdle : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         //프레임마다 등속으로 낙하
         transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+        Debug.Log("speed : "+moveSpeed);
     }
 }

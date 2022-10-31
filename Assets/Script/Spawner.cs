@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
-    private float spawnTime = 1f;
+    private float spawnTime = 0f;
     [SerializeField]
     private GameObject[] spawnList;
     [SerializeField]
@@ -18,7 +18,11 @@ public class Spawner : MonoBehaviour
     private float range_Start = -10f;
     [SerializeField]
     private float range_End = 10f;
-
+    private float score = 0f;
+    float a = 10;
+    float speed = 8f;
+    float d_time = 1.15f;
+    
     void Start()
     {
         
@@ -28,22 +32,53 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if(time >= spawnTime)
+        score += Time.deltaTime * 5;
+        Debug.Log(score);
+        if (score > a)
         {
-
-            Random_fun();
-            Random_fun();
-            spawnTime = Random.Range(StartSpawnTime, endSpawnTime);
-            Debug.Log(transform.position);
+            endSpawnTime = endSpawnTime/1.007f;
+            StartSpawnTime = StartSpawnTime/1.02f;
+            speed += 0.1f;
+            d_time -= 0.01f;
+            a += 3;
+            
+        }
+        if (time >= spawnTime)
+        {
+            if(score <= 1)
+            {
+                Random_fun();
+                spawnTime = Random.Range(StartSpawnTime, endSpawnTime);
+            }
+            else
+            {
+                Random_fun();
+                Random_fun();
+                spawnTime = Random.Range(StartSpawnTime, endSpawnTime);
+            }
+           /* if(score > 50f)
+            {
+                Random_fun();
+                Random_fun();
+                Random_fun();
+                spawnTime = Random.Range(StartSpawnTime, endSpawnTime);
+            }*/
+            
+            /*Debug.Log(transform.position);*/
         }
     }
 
     public void Random_fun()
-    {
+    {   
+       
         GameObject spawnPrefab = spawnList[Random.Range(0, spawnList.Length)];
         float range = Random.Range(range_Start, range_End);
         
-        Instantiate(spawnPrefab, new Vector3(range, 6f, 0.05f), transform.rotation/*방향*/, transform);
+        GameObject spawnObject = Instantiate(spawnPrefab, new Vector3(range, 6f, 0.05f), transform.rotation/*방향*/, transform);
+        spawnObject.GetComponent<hurdle>().moveSpeed = speed;
+        spawnObject.GetComponent<hurdle>().destoryTime = d_time;
+
+
         time = 0f;
     }
 }
